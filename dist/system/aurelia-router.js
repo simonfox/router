@@ -1,6 +1,8 @@
 'use strict';
 
 System.register(['aurelia-logging', 'aurelia-route-recognizer', 'aurelia-dependency-injection', 'aurelia-history', 'aurelia-event-aggregator'], function (_export, _context) {
+  "use strict";
+
   var LogManager, RouteRecognizer, Container, History, EventAggregator, _typeof, _createClass, isRootedPath, isAbsoluteUrl, pipelineStatus, Pipeline, CommitChangesStep, NavigationInstruction, NavModel, Redirect, RedirectToRoute, RouterConfiguration, activationStrategy, BuildNavigationPlanStep, Router, CanDeactivatePreviousStep, CanActivateNextStep, DeactivatePreviousStep, ActivateNextStep, RouteLoader, LoadRouteStep, PipelineSlot, PipelineProvider, logger, AppRouter;
 
   function _possibleConstructorReturn(self, call) {
@@ -955,9 +957,9 @@ System.register(['aurelia-logging', 'aurelia-route-recognizer', 'aurelia-depende
 
             if (Array.isArray(config.route)) {
               for (var i = 0, ii = config.route.length; i < ii; ++i) {
-                var _current = Object.assign({}, config);
-                _current.route = config.route[i];
-                routeConfigs.push(_current);
+                var current = Object.assign({}, config);
+                current.route = config.route[i];
+                routeConfigs.push(current);
               }
             } else {
               routeConfigs.push(Object.assign({}, config));
@@ -1334,9 +1336,9 @@ System.register(['aurelia-logging', 'aurelia-route-recognizer', 'aurelia-depende
           var nav = this.navigation;
 
           for (var i = 0, length = nav.length; i < length; i++) {
-            var _current2 = nav[i];
-            if (!_current2.href) {
-              _current2.href = _createRootedPath(_current2.relativeHref, this.baseUrl, this.history._hasPushState);
+            var current = nav[i];
+            if (!current.config.href) {
+              current.href = _createRootedPath(current.relativeHref, this.baseUrl, this.history._hasPushState);
             }
           }
         };

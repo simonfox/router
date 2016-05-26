@@ -534,9 +534,9 @@ define(['exports', 'aurelia-logging', 'aurelia-route-recognizer', 'aurelia-depen
 
         if (Array.isArray(config.route)) {
           for (var i = 0, ii = config.route.length; i < ii; ++i) {
-            var _current = Object.assign({}, config);
-            _current.route = config.route[i];
-            routeConfigs.push(_current);
+            var current = Object.assign({}, config);
+            current.route = config.route[i];
+            routeConfigs.push(current);
           }
         } else {
           routeConfigs.push(Object.assign({}, config));
@@ -965,9 +965,9 @@ define(['exports', 'aurelia-logging', 'aurelia-route-recognizer', 'aurelia-depen
       var nav = this.navigation;
 
       for (var i = 0, length = nav.length; i < length; i++) {
-        var _current2 = nav[i];
-        if (!_current2.href) {
-          _current2.href = _createRootedPath(_current2.relativeHref, this.baseUrl, this.history._hasPushState);
+        var current = nav[i];
+        if (!current.config.href) {
+          current.href = _createRootedPath(current.relativeHref, this.baseUrl, this.history._hasPushState);
         }
       }
     };
